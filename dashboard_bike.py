@@ -4,4 +4,4 @@ import seaborn as sns
 import streamlit as st
 sns.set(style='dark')
 
-st.title("Ini adalah Dashboard")
+st.header("Ini adalah Dashboard")
