@@ -10,3 +10,7 @@ pip install numpy pandas scipy matplotlib jupyter seaborn streamlit scikit-learn
 ```
 streamlit run dashboard_bike.py
 ```
+### My Deploy Dashbiard
+```
+(https://dashboard-radikto.streamlit.app/)
+```
