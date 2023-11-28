@@ -2,7 +2,7 @@
 
 ### Setup Environment
 ```
-pip install numpy pandas scipy matplotlib seaborn streamlit scikit-learn
+pip install numpy pandas scipy matplotlib jupyter seaborn streamlit scikit-learn
 ```
   
  
