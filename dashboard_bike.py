@@ -7,7 +7,7 @@ sns.set(style='dark')
 
 
 
-all_df = pd.read_csv('https://github.com/Radiktoo/bike_sharing_data/blob/main/bike_all_data.csv')
+all_df = pd.read_csv('bike_all_data.csv')
 
 st.header('Bike Sharing Dashboard :bike:')
 st.subheader('Daily & Hourly Orders')
