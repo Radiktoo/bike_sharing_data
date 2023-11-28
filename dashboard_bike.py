@@ -4,17 +4,15 @@ import seaborn as sns
 import streamlit as st
 sns.set(style='dark')
 
-
-
-
+# memanggil data yang sudah dibersihkan
 all_df = pd.read_csv('bike_all_data.csv')
 
+# membuat judul dashboard
 st.header('Bike Sharing Dashboard :bike:')
 st.subheader('Daily & Hourly Orders')
 
+# Jumlah orders daily & orders hourly
 col1, col2 = st.columns(2)
-
-
 
 with col1:
     total_orders_dy = all_df.cnt_daily.count()
@@ -24,6 +22,8 @@ with col2:
     total_orders_hr = all_df.cnt_hourly.count()
     st.metric("Total orders hourly", value=total_orders_hr)
 
+
+# Penyewa Sepeda berdasarkan bulan
 all_df['mnth_daily'] = pd.to_datetime(all_df['mnth_daily'], format='%b').dt.strftime('%b')
 
 st.subheader("Pola Jumlah Sewa Sepeda Harian Berdasarkan Bulan")
@@ -40,11 +40,8 @@ st.pyplot(fig)
 st.subheader("Pengaruh Musim Terhadap Jumlah Sewa Sepeda Harian ")
 
 
-
+# Penyewa Sepeda berdasarkan musim
 byseason_df = all_df.groupby(by="season",).cnt_daily.nunique().sort_values(ascending=False).reset_index()
-
-
-
 fig, ax = plt.subplots(figsize=(20, 10))
 
 colors = ["#D0A2F7", "#DCBFFF", "#DCBFFF", "#DCBFFF"]
@@ -62,7 +59,7 @@ ax.tick_params(axis='x', labelsize=30)
 st.pyplot(fig)
     
 
-
+# Regresi Linier Sederhana
 st.subheader("Regresi Linier Sederhana")
 
 import numpy as np
@@ -99,7 +96,7 @@ ax.scatter(X, y, color="#D0A2F7", label="Data")
 ax.plot(x_plot, y_plot, color="red", label="Regresi")
 
 # Memberi judul dan label
-
+ax.set_title("Hubungan Suhu Rata-rata Terhadap Jumlah Sepeda Harian", fontsize=40)
 ax.set_xlabel("Suhu Rata-Rata Harian", fontsize=20)
 ax.set_ylabel("Jumlah Penyewa Sepeda Harian", fontsize=20)
 ax.tick_params(axis='y', labelsize=30)
